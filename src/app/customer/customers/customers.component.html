@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row" *ngIf="httpRequestProcessing == true">
+    <div class="col-12">
+      {{httpRequestMessage}}
+    </div>
+  </div>
+  <div *ngIf="httpRequestProcessing == false">
+    <div class="row">
+      <div class="col-6 col-md-6">
+        <p>Total customers: {{customers.length}}</p>
+      </div>
+      <div class="col-6 col-md-6">
+        <a routerLink="/customers/new" class="float-right">Add</a>
+      </div>
+    </div>
+    <div class="row" *ngFor="let customer of customers">
+      <div class="col-12">
+        <div class="card  mb-3">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-8">
+                <a routerLink="/customers/view/{{customer.customerNo}}">
+                  <strong>{{customer.customerNo}}</strong>
+                </a>
+              </div>
+              <div class="col-4 float-right">
+                </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-4 col-md-4">
+                    <strong>Customer name :</strong>
+                  </div>
+                  <div class="col-8 col-md-8">
+                    {{customer.name}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-4 col-md-4">
+                    <strong>Address :</strong>
+                  </div>
+                  <div class="col-8 col-md-8">
+                    <span>{{customer.address}},</span>
+                    <span>{{customer.city}},</span>
+                    <span>{{customer.postalCode}},</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 col-md-6">
+                <div class="row">
+                  <div class="col-4 col-md-4">
+                    <strong>Phone :</strong>
+                  </div>
+                  <div class="col-8 col-md-8">
+                    {{customer.phone}}
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-6">
+                <div class="row">
+                  <div class="col-4 col-md-4">
+                  </div>
+                  <div class="col-8 col-md-8">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

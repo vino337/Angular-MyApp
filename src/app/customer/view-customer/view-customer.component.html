@@ -1,0 +1,107 @@
+<div class="container mt-3">
+  <div class="row" *ngIf="httpRequestProcessing == true">
+    <div class="col-12">
+      {{httpRequestMessage}}
+    </div>
+  </div>
+  <div *ngIf="httpRequestProcessing == false">
+    <div class="row" *ngIf="errorMsg.length > 0">
+      <div class="col-12">
+        <div class="alert alert-danger" role="alert">
+          {{errorMsg}}
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-6">
+                  <h5>Customer details: {{customerNo}}</h5>
+                </div>
+                <div class="col-md-6">
+                  <div class="float-right">
+                    <a routerLink="/customers/edit/{{customerNo}}">Edit</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label for="customerNo">
+                        <strong>Customer no. </strong>
+                      </label>
+                      <label class="float-right">
+                        <strong>:</strong>
+                      </label>
+                    </div>
+                    <div class="col-md-3">
+                      <label>{{customer.customerNo}}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label for="customerName">
+                        <strong>Customer name </strong>
+                      </label>
+                      <label class="float-right">
+                        <strong>:</strong>
+                      </label>
+                    </div>
+                    <div class="col-md-3">
+                      <label>{{customer.name}}</label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label for="address">
+                        <strong>Address</strong>
+                      </label>
+                      <label class="float-right">
+                        <strong>:</strong>
+                      </label>
+                    </div>
+                    <div class="col-md-3">
+                      <label>
+                        <span>{{customer.address}},</span>
+                        <span>{{customer.city}},</span>
+                        <span>{{customer.postalCode}},</span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-3">
+                      <label for="phone">
+                        <strong>Phone</strong>
+                      </label>
+                      <label class="float-right">
+                        <strong>:</strong>
+                      </label>
+                    </div>
+                    <div class="col-md-3">
+                      <label>{{customer.phone}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngFor="let contact of contacts">
+                  <app-contact [contact]= contact></app-contact>
+              </div>  
+              <!--
+              <div *ngFor="let contact of contacts">
+                {{contact.contactName}}
+                
+              </div>  
+              -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container mt-3">
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Edit contact details: {{contact.contactName}}</h5>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <form #editCustomerForm="ngForm">
+            <fieldset [disabled]="httpRequestMessage.length > 0">
+              <div class="form-group" [class.has-error]="customerNo.invalid && customerNo.touched" [class.has-success]="customerNo.valid">
+                <label class="form-control-label" for="customerNo">Customer no. *</label>
+                <input type="text" class="form-control" name="customerNo" [(ngModel)]="contact.customerNo" #customerNo="ngModel" required
+                  readonly>
+                <span class="help-block alert-danger" *ngIf="customerNo.errors?.required && customerNo.touched">
+                  customer number is required.
+                </span>
+              </div>
+              <div class="form-group" [class.has-error]="contactName.invalid && contactName.touched" [class.has-success]="contactName.valid">
+                <label class="form-control-label" for="contactName">Contact name *</label>
+                <input type="text" class="form-control" name="contactName" [(ngModel)]="contact.contactName" #contactName="ngModel" required>
+                <span class="help-block alert-danger" *ngIf="contactName.errors?.required && contactName.touched">
+                  contact name is required.
+                </span>
+              </div>
+              <div class="form-group" [class.has-error]="phone.invalid && phone.touched" [class.has-success]="phone.valid">
+                <label class="form-control-label" for="phone">Phone</label>
+                <input type="text" class="form-control" name="phone" [(ngModel)]="contact.phone" #phone="ngModel">
+              </div>
+              <div class="form-group" [class.has-error]="mobile.invalid && mobile.touched" [class.has-success]="mobile.valid">
+                <label class="form-control-label" for="mobile">Mobile</label>
+                <input type="text" class="form-control" name="mobile" [(ngModel)]="contact.mobile" #mobile="ngModel">
+              </div>
+              <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid">
+                <label class="form-control-label" for="email">Email</label>
+                <input type="text" class="form-control" name="email" [(ngModel)]="contact.email" #email="ngModel">
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

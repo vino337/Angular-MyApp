@@ -1,0 +1,63 @@
+<div class="container mt-3">
+    <div class="row" *ngIf="httpRequestMessage.length > 0">
+        <div class="col-12">
+          {{httpRequestMessage}}
+        </div>
+      </div>
+  <ngb-alert *ngIf="failMessage" type="danger" (close)="failMessage = null">{{ failMessage }}</ngb-alert>
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-md-6">
+          <h5>Add customer</h5>
+        </div>
+        <div class="col-md-6">
+          <div class="float-right">
+            <a routerLink="/customers">back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+          <form (ngSubmit)="onSaveCustomer()" #newCustomerForm="ngForm" >
+            <fieldset [disabled]="httpRequestMessage.length > 0">
+                <div class="form-group" [class.has-error]="customerName.invalid && customerName.touched" [class.has-success]="customerName.valid">
+                    <label class="form-control-label" for="customerNo">Customer no. *</label>
+                    <input type="text" class="form-control" name="customerNo" [(ngModel)]="customer.customerNo" #customerNo="ngModel" required>
+                    <span class="help-block alert-danger" *ngIf="customerNo.errors?.required && customerNo.touched">
+                      customer number is required.
+                    </span>
+                  </div>
+                  <div class="form-group" [class.has-error]="customerName.invalid && customerName.touched" [class.has-success]="customerName.valid">
+                    <label class="form-control-label" for="customerName">Customer name *</label>
+                    <input type="text" class="form-control" name="customerName" [(ngModel)]="customer.name" #customerName="ngModel" required>
+                    <span class="help-block alert-danger" *ngIf="customerName.errors?.required && customerName.touched">
+                      customer name is required.
+                    </span>
+                  </div>
+                  <div class="form-group" [class.has-error]="address.invalid && address.touched" [class.has-success]="address.valid">
+                    <label class="form-control-label" for="address">Address</label>
+                    <input type="text" class="form-control" name="address" [(ngModel)]="customer.address" #address="ngModel">
+                  </div>
+                  <div class="form-group" [class.has-error]="city.invalid && city.touched" [class.has-success]="city.valid">
+                    <label class="form-control-label" for="city">City</label>
+                    <input type="text" class="form-control" name="city" [(ngModel)]="customer.city" #city="ngModel">
+                  </div>
+                  <div class="form-group" [class.has-error]="postCode.invalid && postCode.touched" [class.has-success]="postCode.valid">
+                    <label class="form-control-label" for="postCode">Post code</label>
+                    <input type="text" class="form-control" name="postCode" [(ngModel)]="customer.postCode" #postCode="ngModel">
+                  </div>
+                  <div class="form-group" [class.has-error]="phoneNo.invalid && phoneNo.touched" [class.has-success]="phoneNo.valid">
+                    <label class="form-control-label" for="phoneNo">Phone no.</label>
+                    <input type="text" class="form-control" name="phoneNo" [(ngModel)]="customer.phoneNo" #phoneNo="ngModel">
+                  </div>
+                  <button type="submit" class="btn btn-success" [disabled]="!newCustomerForm.form.valid">Save</button>
+                </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
