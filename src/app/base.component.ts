@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./base.component.css']
 })
 export class BaseComponent implements OnInit {
-  protected httpRequestProcessing = false;
-  protected httpRequestMessage = '';
-  protected errorMsg = '';
+  public httpRequestProcessing = false;
+  public httpRequestMessage = '';
+  public errorMsg = '';
 
   constructor() { }
 

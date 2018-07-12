@@ -10,12 +10,12 @@ import { CustomerService } from '../../services/customer.service';
 })
 export class ViewCustomerComponent implements OnInit {
 
-  private httpRequestProcessing = false;
-  private httpRequestMessage = '';
-  private errorMsg = '';
-  private customerNo = '';
-  private customer = {};
-  private contacts = [];
+  public httpRequestProcessing = false;
+  public httpRequestMessage = '';
+  public errorMsg = '';
+  public customerNo = '';
+  public customer = {};
+  public contacts = [];
   constructor(
     private customerService: CustomerService,
     private route: ActivatedRoute

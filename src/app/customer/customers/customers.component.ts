@@ -9,9 +9,9 @@ import { CustomerService } from '../../services/customer.service';
 export class CustomersComponent implements OnInit {
 
   private customers = [];
-  private httpRequestProcessing = false;
-  private httpRequestMessage = '';
-  private errorMsg = '';
+  public httpRequestProcessing = false;
+  protected httpRequestMessage = '';
+  protected errorMsg = '';
   constructor(
     private customerService: CustomerService
   ) { }

@@ -10,11 +10,11 @@ import { BaseComponent } from '../../base.component';
 })
 export class EditCustomerComponent extends BaseComponent implements OnInit {
 
-  private customerNo = '';
-  private customer = {};
-  private successMessage = null;
-  private failMessage = null;
-  private contacts = [];
+  public customerNo = '';
+  public customer: any;
+  public successMessage = null;
+  public failMessage = null;
+  public contacts = [];
 
   constructor(
     private customerService: CustomerService,

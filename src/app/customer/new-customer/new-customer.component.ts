@@ -10,8 +10,8 @@ import { CustomerService } from '../../services/customer.service';
 })
 export class NewCustomerComponent extends BaseComponent implements OnInit {
 
-  private customer = { customerNo: ''};
-  private failMessage = null;
+  public customer: any = { customerNo: ''};
+  public failMessage = null;
   constructor(
     private customerService: CustomerService,
     private activatedRoute: ActivatedRoute,
